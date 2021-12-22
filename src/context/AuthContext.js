@@ -1,5 +1,5 @@
 import React, { useEffect, useState, createContext } from "react";
-import Authenticate from "../utils/Auth/Authenticate";
+import Authenticate from "../utils/Authenticate";
 import axios from "axios";
 import { useToast } from "@chakra-ui/react";
 import env from 'react-dotenv'
