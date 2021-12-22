@@ -1,5 +1,5 @@
 import React from "react";
-import { Switch, Route, Redirect } from "react-router-dom";
+import { BrowserRouter as Switch, Route } from "react-router-dom";
 import BlogForm from "./BlogForm";
 import Home from "./Home";
 import AuthForm from "./AuthForm";
@@ -40,7 +40,7 @@ const Main = () => {
           path="/login"
           component={props => <AuthForm {...props} formType={"login"} />}
         />
-        <Redirect to="/" />
+        {/* <Redirect to="/" /> */}
       </Switch>
     </React.Fragment>
   );
