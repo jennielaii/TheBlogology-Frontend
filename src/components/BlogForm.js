@@ -189,6 +189,7 @@ const Profile = ({ match, history, editMode }) => {
                   enableReinitialize
                   initialValues={initialValues}
                   onSubmit={(values, actions) => {
+                    // eslint-disable-next-line no-undef
                     setShowLoader(true);
                     values["contentText"] = contentText;
                     values["contentHtml"] = contentHtml;
