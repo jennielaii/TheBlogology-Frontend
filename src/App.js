@@ -44,13 +44,7 @@ function App() {
   return (
     <ChakraProvider theme={customTheme}>
       <CSSReset config={config} />
-      <AuthProvider>
-        <BlogProvider>
-        <Router>
-            <Main />
-          </Router>
-        </BlogProvider>
-      </AuthProvider>
+      
     </ChakraProvider>
   );
 }
