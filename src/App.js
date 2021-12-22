@@ -46,6 +46,9 @@ function App() {
       <CSSReset config={config} />
       <AuthProvider>
         <BlogProvider>
+        <Router>
+            <Main />
+          </Router>
         </BlogProvider>
       </AuthProvider>
     </ChakraProvider>
