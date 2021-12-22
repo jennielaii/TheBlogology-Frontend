@@ -11,7 +11,7 @@ import {
 } from "@chakra-ui/react";
 import PageLoader from "./PageLoader";
 import axios from "axios";
-import env from 'react-dotenv'
+import env from "react-dotenv";
 import { AuthContext } from "../context/AuthContext";
 import { RiHeart2Line } from "react-icons/ri";
 import { BsBookmarkPlus } from "react-icons/bs";

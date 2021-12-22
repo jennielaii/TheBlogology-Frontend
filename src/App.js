@@ -43,6 +43,7 @@ const config = theme => ({
 function App() {
   return (
     <ChakraProvider theme={customTheme}>
+      <CSSReset config={config} />
       <AuthProvider>
         <BlogProvider>
         </BlogProvider>

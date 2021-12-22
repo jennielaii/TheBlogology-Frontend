@@ -23,8 +23,7 @@ import Dotdotdot from "react-dotdotdot";
 import { BlogContext } from "../context/BlogContext";
 import { AuthContext } from "../context/AuthContext";
 import { Link } from "react-router-dom";
-import PageLoader from "./PageLoader";
-import env from 'react-dotenv'
+import env from "react-dotenv";
 import { RiHeart2Line } from "react-icons/ri";
 import { BsBookmarkPlus, BsFilePost } from "react-icons/bs";
 import { FcAbout, FcRules, FcPrivacy } from "react-icons/fc";

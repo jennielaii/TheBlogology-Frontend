@@ -17,8 +17,7 @@ import {
 import { BlogContext } from "../context/BlogContext";
 import { Formik, Field } from "formik";
 import { AiOutlineUpload } from "react-icons/ai";
-import env from 'react-dotenv'
-import PageLoader from "./PageLoader";
+import env from "react-dotenv";
 import MarkdownIt from "markdown-it";
 import MdEditor from "react-markdown-editor-lite";
 import "react-markdown-editor-lite/lib/index.css";
