@@ -71,7 +71,7 @@ const Profile = ({ match, history, editMode }) => {
   const [upload, setUpload] = useState(false);
   const [contentText, setContentText] = useState("");
   const [contentHtml, setContentHtml] = useState("");
-  const [showLoader, setShowLoader] = useState(false);
+
   const hiddenFileInput = React.useRef(null);
   const context = useContext(BlogContext);
   const toast = useToast();

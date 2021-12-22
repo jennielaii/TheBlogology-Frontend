@@ -28,20 +28,12 @@ import { RiHeart2Line } from "react-icons/ri";
 import { BsBookmarkPlus, BsFilePost } from "react-icons/bs";
 import { FcAbout, FcRules, FcPrivacy } from "react-icons/fc";
 import { FaTags } from "react-icons/fa";
-import ahoy from "ahoy.js";
 import {
   motion,
   AnimatePresence,
   useViewportScroll,
   useAnimation
 } from "framer-motion";
-
-ahoy.configure({
-  urlPrefix: "",
-  visitsUrl: `${env}/ahoy/visits`,
-  eventsUrl: `${env}/ahoy/events`,
-  withCredentials: true
-});
 
 const Home = ({ location }) => {
   const context = useContext(BlogContext);
@@ -64,7 +56,6 @@ const Home = ({ location }) => {
       x: 100,
       transition: { delay: i * 0.3, opacity: 1 }
     }));
-    ahoy.trackAll();
     console.log("use efect");
     context.fetchBlogsAsync.then(res => {
       console.log("ressss", res);

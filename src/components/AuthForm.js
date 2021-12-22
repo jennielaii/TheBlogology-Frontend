@@ -11,7 +11,7 @@ import {
   Button,
   Heading,
   FormErrorMessage
-} from "@chakra-ui/core";
+} from "@chakra-ui/react";
 import { Formik, Field } from "formik";
 import { FadeTransform } from "react-animation-components";
 import { AuthContext } from "../context/AuthContext";

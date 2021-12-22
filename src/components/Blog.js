@@ -9,7 +9,6 @@ import {
   Avatar,
   IconButton
 } from "@chakra-ui/react";
-import PageLoader from "./PageLoader";
 import axios from "axios";
 import env from "react-dotenv";
 import { AuthContext } from "../context/AuthContext";
@@ -191,7 +190,7 @@ const Blog = ({ match }) => {
           </Box>
         </Flex>
       ) : (
-        <PageLoader />
+        <null />
       )}
       {/* </motion.div> */}
     </>
