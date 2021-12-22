@@ -10,7 +10,6 @@ import {
   useToast,
   Image,
   FormErrorMessage,
-  PseudoBox,
   Text,
   List
 } from "@chakra-ui/react";
@@ -164,7 +163,7 @@ const Profile = ({ match, history, editMode }) => {
           rounded="md"
         >
           <List>
-            <PseudoBox
+            <Box
               as="li"
               fontWeight="semibold"
               py={2}
@@ -174,7 +173,7 @@ const Profile = ({ match, history, editMode }) => {
               _active={{ bg: "#fbfdff", rounded: "md" }}
             >
               Profile
-            </PseudoBox>
+            </Box>
           </List>
         </Box>
         <Box
@@ -221,7 +220,7 @@ const Profile = ({ match, history, editMode }) => {
                                   }
                                 >
                                   <FormLabel htmlFor="title">Title</FormLabel>
-                                  <PseudoBox
+                                  <Box
                                     {...field}
                                     as="input"
                                     display="block"

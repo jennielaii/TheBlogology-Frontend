@@ -13,7 +13,7 @@ import {
   FormErrorMessage
 } from "@chakra-ui/react";
 import { Formik, Field } from "formik";
-import { FadeTransform } from "react-animation-components";
+// import { FadeTransform } from "react-animation-components";
 import { AuthContext } from "../context/AuthContext";
 
 const AuthForm = ({ history, formType }) => {
@@ -42,12 +42,12 @@ const AuthForm = ({ history, formType }) => {
   }
 
   return (
-    <FadeTransform
-      in
-      transformProps={{
-        exitTransform: "scale(0.5) translateX(-50%)"
-      }}
-    >
+    // <FadeTransform
+    //   in
+    //   transformProps={{
+    //     exitTransform: "scale(0.5) translateX(-50%)"
+    //   }}
+    // >
       <Box
         maxWidth="1200px"
         mx="auto"
@@ -173,7 +173,7 @@ const AuthForm = ({ history, formType }) => {
           </Box>
         </Flex>
       </Box>
-    </FadeTransform>
+    // </FadeTransform>
   );
 };
 

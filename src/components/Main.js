@@ -1,9 +1,8 @@
 import React from "react";
 import { Switch, Route, Redirect } from "react-router-dom";
-import Header from "../shared/Header";
 import BlogForm from "./BlogForm";
 import Home from "./Home";
-import AuthForm from "./Auth/AuthForm";
+import AuthForm from "./AuthForm";
 import Blog from "./Blog";
 import Profile from "./Profile";
 
@@ -11,7 +10,6 @@ import Profile from "./Profile";
 const Main = () => {
   return (
     <React.Fragment>
-      <Header />
       <Switch>
         <Route exact path="/" component={Home} />
         <Route

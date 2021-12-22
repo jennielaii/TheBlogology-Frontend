@@ -8,7 +8,6 @@ import {
   Heading,
   Image,
   useToast,
-  PseudoBox,
   Text,
   List,
   FormControl,
@@ -108,7 +107,7 @@ const Profile = ({ history }) => {
           rounded="md"
         >
           <List>
-            <PseudoBox
+            <Box
               as="li"
               fontWeight="semibold"
               py={2}
@@ -124,8 +123,8 @@ const Profile = ({ history }) => {
               // }}
             >
               Profile
-            </PseudoBox>
-            {/* <PseudoBox
+            </Box>
+            {/* <Box
               as="li"
               fontWeight="semibold"
               py={2}
@@ -140,7 +139,7 @@ const Profile = ({ history }) => {
               }}
             >
               Account
-            </PseudoBox>
+            </Box>
 
             <ListItem
               _hover={{
@@ -199,7 +198,7 @@ const Profile = ({ history }) => {
                         <Stack spacing={3}>
                           <Box>
                             {/* <FormLabel htmlFor="email">Email</FormLabel>
-                            <PseudoBox
+                            <Box
                               as="input"
                               display="block"
                               placeholder="Email"
@@ -238,7 +237,7 @@ const Profile = ({ history }) => {
                                     value={values.title}
                                     onChange={handleChange}
                                   /> */}
-                                  <PseudoBox
+                                  <Box
                                     {...field}
                                     as="input"
                                     display="block"
@@ -269,7 +268,7 @@ const Profile = ({ history }) => {
                           <Box>
                             <FormLabel htmlFor="name">Name</FormLabel>
 
-                            <PseudoBox
+                            <Box
                               as="input"
                               display="block"
                               placeholder="Muhammad Ahmad"
@@ -293,7 +292,7 @@ const Profile = ({ history }) => {
                           </Box>
                           <Box>
                             <FormLabel htmlFor="name">Username</FormLabel>
-                            <PseudoBox
+                            <Box
                               id="username"
                               as="input"
                               display="block"
@@ -317,7 +316,7 @@ const Profile = ({ history }) => {
                           </Box>
                           <Box>
                             <FormLabel htmlFor="name">Summary</FormLabel>
-                            <PseudoBox
+                            <Box
                               id="summary"
                               as="textarea"
                               display="block"
@@ -342,7 +341,7 @@ const Profile = ({ history }) => {
                           </Box>
                           <Box>
                             <FormLabel htmlFor="name">Location</FormLabel>
-                            <PseudoBox
+                            <Box
                               id="location"
                               as="input"
                               display="block"
@@ -366,7 +365,7 @@ const Profile = ({ history }) => {
                           </Box>
                           <Box>
                             <FormLabel htmlFor="name">Education</FormLabel>
-                            <PseudoBox
+                            <Box
                               id="education"
                               as="input"
                               display="block"
@@ -392,7 +391,7 @@ const Profile = ({ history }) => {
                             <FormLabel htmlFor="name">
                               Skills/Languages
                             </FormLabel>
-                            <PseudoBox
+                            <Box
                               id="skills"
                               as="textarea"
                               display="block"
@@ -419,7 +418,7 @@ const Profile = ({ history }) => {
                             <FormLabel htmlFor="name">
                               Employment title
                             </FormLabel>
-                            <PseudoBox
+                            <Box
                               id="emp_title"
                               as="input"
                               display="block"
@@ -443,7 +442,7 @@ const Profile = ({ history }) => {
                           </Box>
                           <Box>
                             <FormLabel htmlFor="name">Employer name</FormLabel>
-                            <PseudoBox
+                            <Box
                               id="emp_name"
                               as="input"
                               display="block"
