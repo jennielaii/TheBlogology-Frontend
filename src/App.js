@@ -1,51 +1,30 @@
-import React from "react";
-import { BrowserRouter as Router } from "react-router-dom";
-import Main from "./components/Main";
-import { AuthProvider } from "./context/AuthContext";
-import { BlogProvider } from "./context/BlogContext";
-import { ChakraProvider, CSSReset, theme } from "@chakra-ui/react";
-
-const breakpoints = ["910px", "1050px", "1100px", "1440px"];
-breakpoints.sm = breakpoints[0];
-breakpoints.md = breakpoints[1];
-breakpoints.lg = breakpoints[2];
-breakpoints.xl = breakpoints[3];
-
-const customTheme = {
-  ...theme,
-  breakpoints
-
-  // colors: {
-  //   ...theme.colors,
-  //   brand: {
-  //     900: "#1a365d",
-  //     800: "#153e75",
-  //     700: "#2a69ac"
-  //   }
-  // }
-};
-
-const config = theme => ({
-  light: {
-    color: theme.colors.gray[700],
-    bg: theme.colors.gray[100],
-    borderColor: theme.colors.gray[200],
-    placeholderColor: theme.colors.gray[500]
-  },
-  dark: {
-    color: theme.colors.whiteAlpha[900],
-    bg: theme.colors.gray[800],
-    borderColor: theme.colors.whiteAlpha[300],
-    placeholderColor: theme.colors.whiteAlpha[400]
-  }
-});
+import Home from "./pages/home/Home";
+import TopBar from "./components/topbar/TopBar";
+import Single from "./pages/single/Single";
+import Write from "./pages/write/Write";
+import Login from "./pages/login/Login";
+import Register from "./pages/register/Register";
+import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+import { useContext } from "react";
+import { Context } from "./context/Context";
 
 function App() {
+  const { user } = useContext(Context);
   return (
-    <ChakraProvider theme={customTheme}>
-      <CSSReset config={config} />
-      
-    </ChakraProvider>
+    <Router>
+      <TopBar />
+      <Switch>
+        <Route exact path="/">
+          <Home />
+        </Route>
+        <Route path="/signup">{user ? <Home /> : <Register />}</Route>
+        <Route path="/login">{user ? <Home /> : <Login />}</Route>
+        <Route path="/write">{user ? <Write /> : <Register />}</Route>
+        <Route path="/post/:postId">
+          <Single />
+        </Route>
+      </Switch>
+    </Router>
   );
 }
 
