@@ -6,7 +6,6 @@ import "./topbar.css";
 export default function TopBar() {
   const {userState} = useContext(UserContext);
   const [user, setUser] = userState;
-  const PF = "http://localhost:5000/images/"
 
   const handleLogout = () => {
     localStorage.removeItem("userId");
@@ -49,9 +48,7 @@ export default function TopBar() {
       </div>
       <div className="topRight">
         {user ? (
-          <Link to="/settings">
-            <img className="topImg" src={PF+user.profilePic} alt="" />
-          </Link>
+          null
         ) : (
           <ul className="topList">
             <li className="topListItem">
