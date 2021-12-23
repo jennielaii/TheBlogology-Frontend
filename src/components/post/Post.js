@@ -10,7 +10,7 @@ export default function Post(props) {
   const handleEdit = (e, id) => {
     e.preventDefault()
     try {
-      axios.put(`http://localhost:3001/post/${id}`,
+      axios.put(`${process.env.REACT_APP_BACKEND_URL}/post/${id}`,
       {title: title, description: description})
       .then((response)=>{setShowEdit(false)})
       .then(props.fetchPosts())

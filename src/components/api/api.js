@@ -13,8 +13,8 @@ const API = () => {
             method: 'GET',
             url: 'https://quotes15.p.rapidapi.com/quotes/random/',
             headers: {
-              'x-rapidapi-host': 'quotes15.p.rapidapi.com',
-              'x-rapidapi-key': 'b8f04be492msh8ec26fac246bb32p135015jsnbc4f2bc407f2'
+              'x-rapidapi-host': `${process.env.REACT_APP_API_HOST}`,
+              'x-rapidapi-key': `${process.env.REACT_APP_API_KEY}`
             }
           };
           

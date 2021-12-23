@@ -12,7 +12,7 @@ export default function Register() {
     e.preventDefault();
     setError(false);
     try {
-      const res = await axios.post("http://localhost:3001/user/register", {
+      const res = await axios.post(`${process.env.REACT_APP_BACKEND_URL}/user/register`, {
         email:email,
         password:password,
       });

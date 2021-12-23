@@ -12,7 +12,7 @@ export default function Home() {
 
 
   const fetchPosts = async () => {
-    const res = await axios.get("http://localhost:3001/post");
+    const res = await axios.get(`${process.env.REACT_APP_BACKEND_URL}/post`);
     console.log(res.data.blogs)
     setPosts(res.data.blogs);
   };

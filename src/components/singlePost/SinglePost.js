@@ -21,7 +21,7 @@ export default function SinglePost() {
 
   useEffect(() => {
     const getPost = async () => {
-      const res = await axios.get("http://localhost:3001/post/" + path);
+      const res = await axios.get(`${process.env.REACT_APP_BACKEND_URL}/post/` + path);
       setPost(res.data);
       setTitle(res.data.title);
       setDesc(res.data.desc);
@@ -31,7 +31,7 @@ export default function SinglePost() {
 
   const handleDelete = async () => {
     try {
-      await axios.delete(`http://localhost:3001/post/${post._id}`, {
+      await axios.delete(`${process.env.REACT_APP_BACKEND_URL}/post/${post._id}`, {
         data: { username: user.username },
       });
       window.location.replace("/");
@@ -40,7 +40,7 @@ export default function SinglePost() {
 
   const handleUpdate = async () => {
     try {
-      await axios.put(`http://localhost:3001/post/${post._id}`, {
+      await axios.put(`${process.env.REACT_APP_BACKEND_URL}/post/${post._id}`, {
         username: user.username,
         title,
         desc,

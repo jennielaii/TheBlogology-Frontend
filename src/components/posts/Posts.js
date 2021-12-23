@@ -4,7 +4,7 @@ import "./posts.css";
 
 export default function Posts(props) {
   const handleDelete = (id) => {
-    axios.delete(`http://localhost:3001/post/${id}`)
+    axios.delete(`${process.env.REACT_APP_BACKEND_URL}/post/${id}`)
     .then(props.fetchPosts())
   }
   return (

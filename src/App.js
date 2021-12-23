@@ -19,7 +19,7 @@ function App() {
     try {
       if (userId) {
         // console.log(userId)
-        const response = await axios.get(`http://localhost:3001/user/verify`, {
+        const response = await axios.get(`${process.env.REACT_APP_BACKEND_URL}/user/verify`, {
           headers: {
             Authorization: userId
           }
