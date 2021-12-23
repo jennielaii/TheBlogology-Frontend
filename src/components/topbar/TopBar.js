@@ -16,34 +16,44 @@ const TopBar = (props) => {
         <i className="topIcon fab fa-instagram-square"></i>
       </div>
       <div className="topCenter">
-        <ul className="topList">
+        { !user.id ? 
+          <ul className="topList">
           <li className="topListItem">
             <Link className="link" to="/">
               HOME
             </Link>
           </li>
-          <li className="topListItem">
-            <Link className="link" to="/">
-              ABOUT
-            </Link>
-          </li>
-          <li className="topListItem">
-            <Link className="link" to="/">
-              CONTACT
-            </Link>
-          </li>
-          <li className="topListItem">
-            <Link className="link" to="/write">
-              WRITE
-            </Link>
-          </li>
-          <li className="topListItem">
-          <Link href="/login" color= "inherit" onClick={() => { setUser({}); localStorage.removeItem('userId') }}>LOGOUT</Link> 
-          </li>
-        </ul>
+          </ul>
+        : 
+          <ul className="topList">
+            <li className="topListItem">
+              <Link className="link" to="/">
+                HOME
+              </Link>
+            </li>
+            <li className="topListItem">
+              <Link className="link" to="/">
+                ABOUT
+              </Link>
+            </li>
+            <li className="topListItem">
+              <Link className="link" to="/">
+                CONTACT
+              </Link>
+            </li>
+            <li className="topListItem">
+              <Link className="link" to="/write">
+                WRITE
+              </Link>
+            </li>
+            <li className="topListItem">
+              <Link to="/login" color= "inherit" onClick={() => { setUser({}); localStorage.removeItem('userId') }}>LOGOUT</Link> 
+            </li>
+          </ul>
+        }
       </div>
       <div className="topRight">
-        {user ? (
+        {user.id ? (
           null
         ) : (
           <ul className="topList">

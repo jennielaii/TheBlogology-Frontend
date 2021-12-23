@@ -19,7 +19,7 @@ function App() {
     try {
       if (userId) {
         // console.log(userId)
-        const response = await axios.get(`${env.BACKEND_URL}/user/verify`, {
+        const response = await axios.get(`http://localhost:3001/user/verify`, {
           headers: {
             Authorization: userId
           }
@@ -40,9 +40,9 @@ function App() {
         <Route exact path="/">
           <Home />
         </Route>
-        <Route path="/register">{user ? <Home /> : <Register />}</Route>
-        <Route path="/login">{user ? <Home /> : <Login />}</Route>
-        <Route path="/write">{user ? <Write /> : <Register />}</Route>
+        <Route path="/register">{user.id ? <Home /> : <Register />}</Route>
+        <Route path="/login">{user.id ? <Home /> : <Login />}</Route>
+        <Route path="/write">{user.id ? <Write /> : <Register />}</Route>
         <Route path="/post/:postId">
           <Single />
         </Route>

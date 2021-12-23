@@ -1,9 +1,14 @@
 import axios from "axios";
-import { useState } from "react";
+import { useState, useContext } from "react";
 import { Link } from "react-router-dom";
-import "../register/register.css";
+import "./register.css";
+import { UserContext } from "../../context/userContext";
 
-export default function Register() {
+
+const Register = () => {
+  const { userState } = useContext(UserContext);
+  const [user, setUser] = userState;
+
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState(false);
@@ -12,13 +17,12 @@ export default function Register() {
     e.preventDefault();
     setError(false);
     try {
-      const res = await axios.post("http://localhost:3001/user/register", {
-        email:email,
-        password:password,
-      });
-      res.data && window.location.replace("/login");
+      const res = await axios.post("http://localhost:3001/user/register", {email: email, password: password});
+      console.log(res)
+      setUser(res.data.user)
+      localStorage.setItem('userId', res.data.user.id)
     } catch (err) {
-      setError(true);
+      console.log(err)
     }
   };
   return (
@@ -30,6 +34,7 @@ export default function Register() {
           type="text"
           className="registerInput"
           placeholder="Enter your email..."
+          value={email}
           onChange={(e) => setEmail(e.target.value)}
         />
         <label>Password</label>
@@ -37,6 +42,7 @@ export default function Register() {
           type="password"
           className="registerInput"
           placeholder="Enter your password..."
+          value={password}
           onChange={(e) => setPassword(e.target.value)}
         />
         <button className="registerButton" type="submit">
@@ -52,3 +58,5 @@ export default function Register() {
     </div>
   );
 }
+
+export default Register
