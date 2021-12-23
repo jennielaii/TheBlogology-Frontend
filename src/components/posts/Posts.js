@@ -1,12 +1,26 @@
+import axios from "axios";
 import Post from "../post/Post";
 import "./posts.css";
 
-export default function Posts({ posts }) {
+export default function Posts(props) {
+  const handleDelete = (id) => {
+    axios.delete(`http://localhost:3001/post/${id}`)
+    .then(props.fetchPosts())
+  }
   return (
     <div className="posts">
-      {posts.map((p) => (
-        <Post post={p} />
-      ))}
+      {props.posts.map((post, i) => {
+        return (
+          <div key={i}>
+            <div>{post.title}</div>
+            <div>{post.description}</div>
+            <div>{post.id}</div>
+            <input type='button' value='Delete' onClick={(e)=>{handleDelete(post.id)}}/>
+            <Post id={post.id} fetchPosts={props.fetchPosts}/>
+          </div>
+        )
+      }
+      )}
     </div>
   );
 }

@@ -2,25 +2,26 @@ import { useContext, useState } from "react";
 import "./write.css";
 import axios from "axios";
 import { UserContext } from "../../context/userContext";
+import { useHistory } from "react-router-dom";
 
 export default function Write() {
-  const [title, setTitle] = useState("");
-  const [desc, setDesc] = useState("");
+  let history = useHistory();
+
+  const [title, setTitle] = useState("")
+  const [description, setDescription] = useState("")
+
   const {userState} = useContext(UserContext);
   const [user, setUser] = userState;
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const newPost = {
-      username: user.username,
-      title,
-      desc,
-    };
     try {
-      const res = await axios.post("http://localhost:3001/posts", newPost);
-      window.location.replace("/post/" + res.data._id);
-    } catch (err) {}
-  };
+      const res = await axios.post("http://localhost:3001/post", {userid: user.id, title: title, description: description})
+    } catch (err) {
+      console.log(err)
+    }
+  }
+
   return (
     <div className="write">
       <form className="writeForm" onSubmit={handleSubmit}>
@@ -33,6 +34,7 @@ export default function Write() {
             placeholder="Title"
             className="writeInput"
             autoFocus={true}
+            value={title}
             onChange={e=>setTitle(e.target.value)}
           />
         </div>
@@ -41,7 +43,8 @@ export default function Write() {
             placeholder="Tell your story..."
             type="text"
             className="writeInput writeText"
-            onChange={e=>setDesc(e.target.value)}
+            value={description}
+            onChange={e=>setDescription(e.target.value)}
           ></textarea>
         </div>
         <button className="writeSubmit" type="submit">

@@ -10,18 +10,22 @@ export default function Home() {
   const [posts, setPosts] = useState([]);
   const { search } = useLocation();
 
+
+  const fetchPosts = async () => {
+    const res = await axios.get("http://localhost:3001/post");
+    console.log(res.data.blogs)
+    setPosts(res.data.blogs);
+  };
+
   useEffect(() => {
-    const fetchPosts = async () => {
-      const res = await axios.get("http://localhost:3001/posts" + search);
-      setPosts(res.data);
-    };
     fetchPosts();
   }, [search]);
+  
   return (
     <>
       <Header />
       <div className="home">
-        <Posts posts={posts} />
+        <Posts posts={posts} fetchPosts={fetchPosts}/>
         <Sidebar />
       </div>
     </>

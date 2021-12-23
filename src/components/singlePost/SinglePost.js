@@ -7,12 +7,16 @@ import "./singlePost.css";
 
 export default function SinglePost() {
   const location = useLocation();
+
   const path = location.pathname.split("/")[2];
   const [post, setPost] = useState({});
+
   const {userState} = useContext(UserContext);
   const [user, setUser] = userState;
+  
   const [title, setTitle] = useState("");
   const [desc, setDesc] = useState("");
+  
   const [updateMode, setUpdateMode] = useState(false);
 
   useEffect(() => {
@@ -27,7 +31,7 @@ export default function SinglePost() {
 
   const handleDelete = async () => {
     try {
-      await axios.delete(`/post/${post._id}`, {
+      await axios.delete(`http://localhost:3001/post/${post._id}`, {
         data: { username: user.username },
       });
       window.location.replace("/");
@@ -76,7 +80,7 @@ export default function SinglePost() {
         <div className="singlePostInfo">
           <span className="singlePostAuthor">
             Author:
-            <Link to={`http://localhost:3001/?user=${post.username}`} className="link">
+            <Link to={`/?user=${post.username}`} className="link">
               <b> {post.username}</b>
             </Link>
           </span>

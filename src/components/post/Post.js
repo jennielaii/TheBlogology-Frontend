@@ -1,25 +1,38 @@
 import "./post.css";
-import { Link } from "react-router-dom";
+import { useState }  from 'react'
+import axios from "axios";
 
-export default function Post({ post }) {
-  
+export default function Post(props) {
+  const [ showEdit, setShowEdit ] = useState(false)
+  const [ title, setTitle] = useState('')
+  const [ description, setDescription ] = useState('')
+
+  const handleEdit = (e, id) => {
+    e.preventDefault()
+    try {
+      axios.put(`http://localhost:3001/post/${id}`,
+      {title: title, description: description})
+      .then((response)=>{setShowEdit(false)})
+      .then(props.fetchPosts())
+    } catch (error) {
+      console.log(error)
+    }
+  }
+
   return (
     <div className="post">
-      <div className="postInfo">
-        <div className="postCats">
-          {post.categories.map((c) => (
-            <span className="postCat">{c.name}</span>
-          ))}
-        </div>
-        <Link to={`/post/${post._id}`} className="link">
-          <span className="postTitle">{post.title}</span>
-        </Link>
-        <hr />
-        <span className="postDate">
-          {new Date(post.createdAt).toDateString()}
-        </span>
-      </div>
-      <p className="postDesc">{post.desc}</p>
+      { showEdit ?
+        <form onSubmit={(e)=>handleEdit(e, props.id)}>
+          <label htmlFor='title'>Title:</label>
+          <input type='text' name='title' value={title} onChange={(e)=>{setTitle(e.target.value)}}/>
+          <label htmlFor='description'>Description:</label>
+          <input type='textarea' name='description' value={description} onChange={(e)=>{setDescription(e.target.value)}} />
+          <input type='submit' value='Edit' />
+        <input type='button' value='Cancel' onClick={()=>{setShowEdit(false)}}/>
+        </form>
+        :
+        <input type='button' value='Edit' onClick={()=>{setShowEdit(true)}}/>
+      }
     </div>
   );
 }
