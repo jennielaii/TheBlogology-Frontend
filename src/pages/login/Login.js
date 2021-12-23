@@ -18,7 +18,7 @@ export default function Login() {
         email: email,
         password: password,
       });
-      await localStorage.setItem("userId", res.data.userId);
+      await localStorage.setItem("userId", res.data.user.id);
       await setUser(res.data.user)
     } catch (err) {
       console.log(err);

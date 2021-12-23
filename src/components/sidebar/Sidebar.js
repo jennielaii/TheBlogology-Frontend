@@ -2,6 +2,7 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import "./sidebar.css";
+import  API  from "../../components/api/api" 
 
 export default function Sidebar() {
   const [cats, setCats] = useState([]);
@@ -16,14 +17,13 @@ export default function Sidebar() {
   return (
     <div className="sidebar">
       <div className="sidebarItem">
-        <span className="sidebarTitle">ABOUT ME</span>
+        <span className="sidebarTitle">Random Quotes!</span>
         <img
-          src="https://i.pinimg.com/236x/1e/3f/58/1e3f587572a7a7b20bbf1828595a1786--holiday-party-themes-holiday-gift-guide.jpg"
+          src="https://i.pinimg.com/originals/69/3d/4d/693d4d4c34e7b0f629e543ac31eab1ff.gif"
           alt=""
         />
         <p>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptate qui
-          necessitatibus nostrum illum reprehenderit.
+        <API/>
         </p>
       </div>
       <div className="sidebarItem">

@@ -20,6 +20,7 @@
     "ahoy": "^1.0.1",
     "ahoy.js": "^0.4.0",
     "axios": "^0.24.0",
+    "cors": "^2.8.5",
     "dotenv": "^10.0.0",
     "formik": "^2.2.9",
     "framer-motion": "^4",
