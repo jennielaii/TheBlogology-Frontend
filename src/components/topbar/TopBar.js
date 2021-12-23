@@ -1,14 +1,16 @@
 import { useContext } from "react";
 import { Link } from "react-router-dom";
-import { Context } from "../../context/Context";
+import { UserContext } from "../../context/userContext";
 import "./topbar.css";
 
 export default function TopBar() {
-  const { user, dispatch } = useContext(Context);
+  const {userState} = useContext(UserContext);
+  const [user, setUser] = userState;
   const PF = "http://localhost:5000/images/"
 
   const handleLogout = () => {
-    dispatch({ type: "LOGOUT" });
+    localStorage.removeItem("userId");
+    setUser({});
   };
   return (
     <div className="top">
