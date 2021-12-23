@@ -17,7 +17,7 @@ export default function SinglePost() {
 
   useEffect(() => {
     const getPost = async () => {
-      const res = await axios.get("/post/" + path);
+      const res = await axios.get("http://localhost:3001/post/" + path);
       setPost(res.data);
       setTitle(res.data.title);
       setDesc(res.data.desc);
@@ -36,7 +36,7 @@ export default function SinglePost() {
 
   const handleUpdate = async () => {
     try {
-      await axios.put(`/post/${post._id}`, {
+      await axios.put(`http://localhost:3001/post/${post._id}`, {
         username: user.username,
         title,
         desc,

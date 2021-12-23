@@ -3,14 +3,10 @@ import { Link } from "react-router-dom";
 import { UserContext } from "../../context/userContext";
 import "./topbar.css";
 
-export default function TopBar() {
+const TopBar = (props) => {
   const {userState} = useContext(UserContext);
   const [user, setUser] = userState;
 
-  const handleLogout = () => {
-    localStorage.removeItem("userId");
-    setUser({});
-  };
   return (
     <div className="top">
       <div className="topLeft">
@@ -41,8 +37,8 @@ export default function TopBar() {
               WRITE
             </Link>
           </li>
-          <li className="topListItem" onClick={handleLogout}>
-            {user && "LOGOUT"}
+          <li className="topListItem">
+          <Link href="/login" color= "inherit" onClick={() => { setUser({}); localStorage.removeItem('userId') }}>LOGOUT</Link> 
           </li>
         </ul>
       </div>
@@ -68,3 +64,4 @@ export default function TopBar() {
     </div>
   );
 }
+export default TopBar
