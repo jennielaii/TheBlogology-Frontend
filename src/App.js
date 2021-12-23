@@ -17,7 +17,7 @@ function App() {
         <Route exact path="/">
           <Home />
         </Route>
-        <Route path="/signup">{user ? <Home /> : <Register />}</Route>
+        <Route path="/register">{user ? <Home /> : <Register />}</Route>
         <Route path="/login">{user ? <Home /> : <Login />}</Route>
         <Route path="/write">{user ? <Write /> : <Register />}</Route>
         <Route path="/post/:postId">

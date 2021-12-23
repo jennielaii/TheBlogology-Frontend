@@ -46,8 +46,8 @@ export default function Login() {
         </button>
       </form>
       <button className="loginRegisterButton">
-        <Link className="link" to="/Signup">
-          Signup
+        <Link className="link" to="/register">
+          Register
         </Link>
       </button>
     </div>

@@ -12,9 +12,9 @@ export default function Register() {
     e.preventDefault();
     setError(false);
     try {
-      const res = await axios.post("/auth/register", {
-        email,
-        password,
+      const res = await axios.post("/user/register", {
+        email:email,
+        password:password,
       });
       res.data && window.location.replace("/login");
     } catch (err) {
